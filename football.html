@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        #ball{
+            width : 120px;
+            height: 120px;
+        }
+        div{
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+    </style>
+    <script>
+        let topmargin=0;
+        let maxmargin = -600;
+        let temp = -600;
+        let football = setInterval(() => {
+            if (topmargin > maxmargin){
+                topmargin = topmargin - 10
+            }
+            else{
+                topmargin = topmargin + 10
+            }
+            if(topmargin == maxmargin){
+                maxmargin=0
+            }
+            if(topmargin == 0){
+                maxmargin= temp;
+                temp = temp + 20;
+            }
+            if(temp === 0){
+                clearInterval(football);
+                console.log("Interval cleared");
+            }
+            document.getElementById("ball").style.marginTop = topmargin + 'px'; 
+        }, 10);
+    </script>
+    <!-- <script>
+        let a=0;
+
+        setInterval(() =>{
+             b =  b + 10 ;
+             a = b + 'px';
+            console.log(a);
+            document.getElementById("ball").style.top =  a;
+            document.getElementById("ball").style.width =  a;
+        },5000);
+        // document.getElementById("ball").style.height =  document.getElementById("ball").style.height + 1;
+    </script> -->
+    <title>Document</title>
+</head>
+<body>
+    <div>
+        <img id="ball" src="https://cdn.pixabay.com/photo/2013/07/13/10/51/football-157930_1280.png">
+    </div>
+    
+</body>
+</html>
